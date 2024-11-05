@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>calculadora</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+ *{
+ margin:0;
+ padding: 0;
+ outline: none;
+}
+.container{
+ background: linear-gradient(#D6FFFA, #D6FFF5);
+ width:100vw;
+ height: 100vh;
+ display: grid;
+ grid-template-areas: 
+ "p p p"
+ "box box box"
+ "box box box"
+ ;
+}
+p{
+ background: #9BFFE7;
+ grid-area: p;
+ display: flex;
+ justify-content: flex-end;;;
+ align-items: flex-end;
+ color: #216756;
+font-size: 40px;
+}
+.box{
+ background: #216756;
+ grid-area: box; 
+ display: grid;
+ grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ gap: 10px;
+}
+button{
+ color: #fff;
+ border: none;
+ background: transparent;
+ font-size: 25px;
+}
+button:active{
+ background: #30BE9C;
+}
+.calc{
+ grid-column: span 2;
+}
+.others{
+ font-size: 30px;
+}
+.others:active {
+ background: #5AE4C3;
+}
+</style>
+<body>
+ <div class="container">
+  <p></p
+   <div class="box">
+    <button class="others" onclick="delet()">C</button>
+    <button class="others" onclick="troca()">+/-</button>
+    <button class="others" onclick="inserir('%')">%</button>
+    <button class="others" onclick="inserir('/')">÷</button>
+    <button onclick="inserir(7)">7</button>
+    <button onclick="inserir(8)">8</button>
+    <button onclick="inserir(9)">9</button>
+    <button class="others" onclick="inserir('*')">x</button>
+    <button onclick="inserir(4)">4</button>
+    <button onclick="inserir(5)">5</button>
+    <button onclick="inserir(6)">6</button>
+    <button class="others" onclick="inserir('-')">-</button>
+    <button onclick="inserir(1)">1</button>
+    <button onclick="inserir(2)">2</button>
+    <button onclick="inserir(3)">3</button>
+    <button class="others" onclick="inserir('+')">+</button>
+    <button onclick="inserir(0)">0</button>
+    <button class="others" onclick="inserir('.')">,</button>
+    <button class="others calc" onclick="calcular()">=</button>
+   </div>
+ </div> 
+
+  <script>
+   function inserir(num){
+ var valor = document.querySelector("p").innerHTML
+ document.querySelector("p").innerHTML = valor + num
+}
+function delet(){
+ 
+}
+function calcular(){
+ var valor = document.querySelector("p").innerHTML
+ document.querySelector("p").innerHTML = eval(valor)
+}
+  </script>
+</body>
+</html>
